@@ -93,7 +93,7 @@ function toolranks.new_afteruse(itemstack, user, node, digparams)
     mod_storage:set_string("most_digs_user", pname)
   end
 
-  if itemstack:get_wear() > 60135 then
+  if itemstack:get_wear() > 60135 and core.get_modpath("default") then
     core.chat_send_player(user:get_player_name(), S("Your tool is about to break!"))
     core.sound_play("default_tool_breaks", {
       to_player = pname,
