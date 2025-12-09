@@ -1,0 +1,2 @@
+Code: [LGPLv2.1+](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html) - [lisacvuk](https://content.luanti.org/users/lisacvuk/) 
+Tool level sound: [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) - [Freesound.org](https://freesound.org/people/MakoFox/sounds/126422/)
