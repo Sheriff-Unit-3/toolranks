@@ -1,4 +1,5 @@
 # Toolranks (Fork)
+[![ContentDB](https://content.luanti.org/packages/Sheriff-Unit-3/toolranks/shields/downloads/)](https://content.luanti.org/packages/Sheriff-Unit-3/toolranks/)
 
 Luanti toolranks mod
 
