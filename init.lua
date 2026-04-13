@@ -1,5 +1,5 @@
 local mod_storage = core.get_mod_storage()
-local S = core.get_translator("toolranks")
+local S, PS = core.get_translator("toolranks")
 
 toolranks = {}
 

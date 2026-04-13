@@ -1,0 +1,53 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: init.lua:53
+msgid ""
+"@1@2\n"
+"@3Level @4 @5\n"
+"@6@Node dug: @7"
+msgstr ""
+
+#: init.lua:58
+msgid "pickaxe"
+msgstr ""
+
+#: init.lua:58
+msgid "axe"
+msgstr ""
+
+#: init.lua:58
+msgid "shovel"
+msgstr ""
+
+#: init.lua:58
+msgid "hoe"
+msgstr ""
+
+#: init.lua:58
+msgid "sword"
+msgstr ""
+
+#: init.lua:58
+msgid "tool"
+msgstr ""
+
+#: init.lua:84
+msgid "Most used tool is now a @1@2@3 owned by @4 with @5 uses."
+msgstr ""
+
+#: init.lua:97
+msgid "Your tool is about to break!"
+msgstr ""
+
+#: init.lua:107
+msgid "Your @1@2@3 just leveled up!"
+msgstr ""
