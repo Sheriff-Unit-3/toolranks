@@ -1,13 +1,14 @@
 # Toolranks (Fork)
 [![ContentDB](https://content.luanti.org/packages/Sheriff-Unit-3/toolranks/shields/downloads/)](https://content.luanti.org/packages/Sheriff-Unit-3/toolranks/)
 
-Luanti toolranks mod
+Luanti toolranks mod  
+*When the going gets tough, you get tougher, your tool should too!*
 
 Tools gain levels for digging nodes. Higher level tools dig faster and take longer to wear out.
 
 The original mod was created by: [lisacvuk](https://content.luanti.org/users/lisacvuk/) his code may be found on [GitHub](https://github.com/lisacvuk/minetest-toolranks)
 
-## Licence
+## License
 Code: [LGPLv2.1+](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html)  
 Tool level sound: [CC BY 3.0](https://freesound.org/people/MakoFox/sounds/126422/)
 
