@@ -21,18 +21,20 @@ function toolranks.get_tool_type(description)
     return "tool"
   else
     local d = string.lower(description)
-    if string.find(d, "pickaxe") then
-      return "pickaxe"
-    elseif string.find(d, "axe") then
-      return "axe"
-    elseif string.find(d, "shovel") then
-      return "shovel"
+    if string.find(d, "axe") then
+      return S("axe")
+    elseif string.find(d, "hammer") then
+      return S("hammer")
     elseif string.find(d, "hoe") then
-      return "hoe"
-    elseif string.find(d, "sword") then
-      return "sword"
+      return S("hoe")
+    elseif string.find(d, "pickaxe") then
+      return S("pickaxe")
     elseif string.find(d, "shears") then
-      return "shears"
+      return S("shears")
+    elseif string.find(d, "shovel") then
+      return S("shovel")
+    elseif string.find(d, "sword") then
+      return S("sword")
     else
       return "tool"
     end
@@ -55,7 +57,7 @@ function toolranks.create_description(name, uses)
     description,
     toolranks.colors.gold,
     toolranks.get_level(uses),
-    S(tooltype),
+    tooltype,
     toolranks.colors.grey,
     (type(uses) == "number" and uses or 0)
   )
@@ -164,7 +166,7 @@ if core.get_modpath("default") then
    toolranks.add_tool("default:sword_bronze")
    toolranks.add_tool("default:sword_mese")
    toolranks.add_tool("default:sword_diamond")
-   
+
    -- Pickaxe
    toolranks.add_tool("default:pick_wood")
    toolranks.add_tool("default:pick_stone")
@@ -172,7 +174,7 @@ if core.get_modpath("default") then
    toolranks.add_tool("default:pick_bronze")
    toolranks.add_tool("default:pick_mese")
    toolranks.add_tool("default:pick_diamond")
-   
+
    -- Axe
    toolranks.add_tool("default:axe_wood")
    toolranks.add_tool("default:axe_stone")
@@ -180,7 +182,7 @@ if core.get_modpath("default") then
    toolranks.add_tool("default:axe_bronze")
    toolranks.add_tool("default:axe_mese")
    toolranks.add_tool("default:axe_diamond")
-   
+
    -- Shovel
    toolranks.add_tool("default:shovel_wood")
    toolranks.add_tool("default:shovel_stone")
@@ -198,7 +200,7 @@ if core.get_modpath("mcl_tools") then
    toolranks.add_tool("mcl_tools:sword_gold")
    toolranks.add_tool("mcl_tools:sword_netherite")
    toolranks.add_tool("mcl_tools:sword_diamond")
-   
+
    -- Pickaxe
    toolranks.add_tool("mcl_tools:pick_wood")
    toolranks.add_tool("mcl_tools:pick_stone")
@@ -206,7 +208,7 @@ if core.get_modpath("mcl_tools") then
    toolranks.add_tool("mcl_tools:pick_gold")
    toolranks.add_tool("mcl_tools:pick_netherite")
    toolranks.add_tool("mcl_tools:pick_diamond")
-   
+
    -- Axe
    toolranks.add_tool("mcl_tools:axe_wood")
    toolranks.add_tool("mcl_tools:axe_stone")
@@ -214,7 +216,7 @@ if core.get_modpath("mcl_tools") then
    toolranks.add_tool("mcl_tools:axe_gold")
    toolranks.add_tool("mcl_tools:axe_netherite")
    toolranks.add_tool("mcl_tools:axe_diamond")
-   
+
    -- Shovel
    toolranks.add_tool("mcl_tools:shovel_wood")
    toolranks.add_tool("mcl_tools:shovel_stone")
@@ -232,16 +234,19 @@ if core.get_modpath("tech") then
   -- 1st level
   toolranks.add_tool("tech:stone_chopper")
   toolranks.add_tool("tech:digging_stick")
+
   -- 2nd level
   toolranks.add_tool("tech:adze_granite")
   toolranks.add_tool("tech:adze_basalt")
   toolranks.add_tool("tech:adze_jade")
   toolranks.add_tool("tech:stone_club")
+
   -- 3rd level
   toolranks.add_tool("tech:axe_iron")
   toolranks.add_tool("tech:shovel_iron")
   toolranks.add_tool("tech:mace_iron")
   toolranks.add_tool("tech:pickaxe_iron")
+
   -- hammers
   toolranks.add_tool("tech:hammer_granite")
   toolranks.add_tool("tech:hammer_basalt")
