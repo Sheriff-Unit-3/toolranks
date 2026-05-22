@@ -196,6 +196,7 @@ if core.get_modpath("mcl_tools") then
    -- Sword
    toolranks.add_tool("mcl_tools:sword_wood")
    toolranks.add_tool("mcl_tools:sword_stone")
+   toolranks.add_tool("mcl_tools:sword_copper")
    toolranks.add_tool("mcl_tools:sword_iron")
    toolranks.add_tool("mcl_tools:sword_gold")
    toolranks.add_tool("mcl_tools:sword_netherite")
@@ -204,6 +205,7 @@ if core.get_modpath("mcl_tools") then
    -- Pickaxe
    toolranks.add_tool("mcl_tools:pick_wood")
    toolranks.add_tool("mcl_tools:pick_stone")
+   toolranks.add_tool("mcl_tools:pick_copper")
    toolranks.add_tool("mcl_tools:pick_iron")
    toolranks.add_tool("mcl_tools:pick_gold")
    toolranks.add_tool("mcl_tools:pick_netherite")
@@ -212,6 +214,7 @@ if core.get_modpath("mcl_tools") then
    -- Axe
    toolranks.add_tool("mcl_tools:axe_wood")
    toolranks.add_tool("mcl_tools:axe_stone")
+   toolranks.add_tool("mcl_tools:axe_copper")
    toolranks.add_tool("mcl_tools:axe_iron")
    toolranks.add_tool("mcl_tools:axe_gold")
    toolranks.add_tool("mcl_tools:axe_netherite")
@@ -220,6 +223,7 @@ if core.get_modpath("mcl_tools") then
    -- Shovel
    toolranks.add_tool("mcl_tools:shovel_wood")
    toolranks.add_tool("mcl_tools:shovel_stone")
+   toolranks.add_tool("mcl_tools:shovel_copper")
    toolranks.add_tool("mcl_tools:shovel_iron")
    toolranks.add_tool("mcl_tools:shovel_gold")
    toolranks.add_tool("mcl_tools:shovel_netherite")
