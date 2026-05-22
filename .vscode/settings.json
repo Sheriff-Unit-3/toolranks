@@ -1,5 +1,24 @@
 {
     "Lua.diagnostics.globals": [
-        "core"
+        "core",
+        "toolranks"
+    ],
+    "cSpell.words": [
+        "afteruse",
+        "digparams",
+        "dugnodes",
+        "groupcaps",
+        "itemdef",
+        "itemdesc",
+        "itemmeta",
+        "itemstack",
+        "lastlevel",
+        "levelup",
+        "mese",
+        "modpath",
+        "netherite",
+        "newdesc",
+        "pname",
+        "toolranks"
     ]
 }
