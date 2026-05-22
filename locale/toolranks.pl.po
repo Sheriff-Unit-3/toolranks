@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-08 20:17+0000\n"
+"POT-Creation-Date: 2026-05-22 12:11-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -14,45 +14,49 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Translate Toolkit 3.19.7\n"
 
-#: init.lua:53
+#: init.lua:25
+msgid "axe"
+msgstr ""
+
+#: init.lua:27
+msgid "hammer"
+msgstr ""
+
+#: init.lua:29
+msgid "hoe"
+msgstr ""
+
+#: init.lua:31
+msgid "pickaxe"
+msgstr ""
+
+#: init.lua:33
+msgid "shears"
+msgstr ""
+
+#: init.lua:35
+msgid "shovel"
+msgstr ""
+
+#: init.lua:37
+msgid "sword"
+msgstr ""
+
+#: init.lua:55
 msgid ""
 "@1@2\n"
 "@3Level @4 @5\n"
 "@6@Node dug: @7"
 msgstr ""
 
-#:init.lua:58
-msgid "pickaxe"
-msgstr ""
-
-#:init.lua:58
-msgid "axe"
-msgstr ""
-
-#:init.lua:58
-msgid "shovel"
-msgstr ""
-
-#:init.lua:58
-msgid "hoe"
-msgstr ""
-
-#:init.lua:58
-msgid "sword"
-msgstr ""
-
-#:init.lua:58
-msgid "tool"
-msgstr ""
-
-#: init.lua:84
+#: init.lua:86
 msgid "Most used tool is now a @1@2@3 owned by @4 with @5 uses."
 msgstr ""
 
-#: init.lua:97
+#: init.lua:99
 msgid "Your tool is about to break!"
 msgstr ""
 
-#: init.lua:107
+#: init.lua:109
 msgid "Your @1@2@3 just leveled up!"
 msgstr ""
