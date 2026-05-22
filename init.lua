@@ -159,78 +159,89 @@ function toolranks.add_tool(name)
 end
 
 if core.get_modpath("default") then
-   -- Sword
-   toolranks.add_tool("default:sword_wood")
-   toolranks.add_tool("default:sword_stone")
-   toolranks.add_tool("default:sword_steel")
-   toolranks.add_tool("default:sword_bronze")
-   toolranks.add_tool("default:sword_mese")
-   toolranks.add_tool("default:sword_diamond")
+  -- Axe
+  toolranks.add_tool("default:axe_wood")
+  toolranks.add_tool("default:axe_stone")
+  toolranks.add_tool("default:axe_steel")
+  toolranks.add_tool("default:axe_bronze")
+  toolranks.add_tool("default:axe_mese")
+  toolranks.add_tool("default:axe_diamond")
 
-   -- Pickaxe
-   toolranks.add_tool("default:pick_wood")
-   toolranks.add_tool("default:pick_stone")
-   toolranks.add_tool("default:pick_steel")
-   toolranks.add_tool("default:pick_bronze")
-   toolranks.add_tool("default:pick_mese")
-   toolranks.add_tool("default:pick_diamond")
+  -- Pickaxe
+  toolranks.add_tool("default:pick_wood")
+  toolranks.add_tool("default:pick_stone")
+  toolranks.add_tool("default:pick_steel")
+  toolranks.add_tool("default:pick_bronze")
+  toolranks.add_tool("default:pick_mese")
+  toolranks.add_tool("default:pick_diamond")
 
-   -- Axe
-   toolranks.add_tool("default:axe_wood")
-   toolranks.add_tool("default:axe_stone")
-   toolranks.add_tool("default:axe_steel")
-   toolranks.add_tool("default:axe_bronze")
-   toolranks.add_tool("default:axe_mese")
-   toolranks.add_tool("default:axe_diamond")
+  -- Shovel
+  toolranks.add_tool("default:shovel_wood")
+  toolranks.add_tool("default:shovel_stone")
+  toolranks.add_tool("default:shovel_steel")
+  toolranks.add_tool("default:shovel_bronze")
+  toolranks.add_tool("default:shovel_mese")
+  toolranks.add_tool("default:shovel_diamond")
 
-   -- Shovel
-   toolranks.add_tool("default:shovel_wood")
-   toolranks.add_tool("default:shovel_stone")
-   toolranks.add_tool("default:shovel_steel")
-   toolranks.add_tool("default:shovel_bronze")
-   toolranks.add_tool("default:shovel_mese")
-   toolranks.add_tool("default:shovel_diamond")
+  -- Sword
+  toolranks.add_tool("default:sword_wood")
+  toolranks.add_tool("default:sword_stone")
+  toolranks.add_tool("default:sword_steel")
+  toolranks.add_tool("default:sword_bronze")
+  toolranks.add_tool("default:sword_mese")
+  toolranks.add_tool("default:sword_diamond")
+end
+
+if core.get_modpath("farming") then
+  -- Hoe
+  toolranks.add_tool("default:hoe_wood")
+  toolranks.add_tool("default:hoe_stone")
+  toolranks.add_tool("default:hoe_steel")
+  -- Depreciated in MTG
+  toolranks.add_tool("default:hoe_bronze")
+  toolranks.add_tool("default:hoe_mese")
+  toolranks.add_tool("default:hoe_diamond")
 end
 
 if core.get_modpath("mcl_tools") then
-   -- Sword
-   toolranks.add_tool("mcl_tools:sword_wood")
-   toolranks.add_tool("mcl_tools:sword_stone")
-   toolranks.add_tool("mcl_tools:sword_copper")
-   toolranks.add_tool("mcl_tools:sword_iron")
-   toolranks.add_tool("mcl_tools:sword_gold")
-   toolranks.add_tool("mcl_tools:sword_netherite")
-   toolranks.add_tool("mcl_tools:sword_diamond")
+  -- Axe
+  toolranks.add_tool("mcl_tools:axe_wood")
+  toolranks.add_tool("mcl_tools:axe_stone")
+  toolranks.add_tool("mcl_tools:axe_copper")
+  toolranks.add_tool("mcl_tools:axe_iron")
+  toolranks.add_tool("mcl_tools:axe_gold")
+  toolranks.add_tool("mcl_tools:axe_netherite")
+  toolranks.add_tool("mcl_tools:axe_diamond")
 
-   -- Pickaxe
-   toolranks.add_tool("mcl_tools:pick_wood")
-   toolranks.add_tool("mcl_tools:pick_stone")
-   toolranks.add_tool("mcl_tools:pick_copper")
-   toolranks.add_tool("mcl_tools:pick_iron")
-   toolranks.add_tool("mcl_tools:pick_gold")
-   toolranks.add_tool("mcl_tools:pick_netherite")
-   toolranks.add_tool("mcl_tools:pick_diamond")
+  -- Pickaxe
+  toolranks.add_tool("mcl_tools:pick_wood")
+  toolranks.add_tool("mcl_tools:pick_stone")
+  toolranks.add_tool("mcl_tools:pick_copper")
+  toolranks.add_tool("mcl_tools:pick_iron")
+  toolranks.add_tool("mcl_tools:pick_gold")
+  toolranks.add_tool("mcl_tools:pick_netherite")
+  toolranks.add_tool("mcl_tools:pick_diamond")
 
-   -- Axe
-   toolranks.add_tool("mcl_tools:axe_wood")
-   toolranks.add_tool("mcl_tools:axe_stone")
-   toolranks.add_tool("mcl_tools:axe_copper")
-   toolranks.add_tool("mcl_tools:axe_iron")
-   toolranks.add_tool("mcl_tools:axe_gold")
-   toolranks.add_tool("mcl_tools:axe_netherite")
-   toolranks.add_tool("mcl_tools:axe_diamond")
+  -- Shears
+  toolranks.add_tool("mcl_tools:shears")
 
-   -- Shovel
-   toolranks.add_tool("mcl_tools:shovel_wood")
-   toolranks.add_tool("mcl_tools:shovel_stone")
-   toolranks.add_tool("mcl_tools:shovel_copper")
-   toolranks.add_tool("mcl_tools:shovel_iron")
-   toolranks.add_tool("mcl_tools:shovel_gold")
-   toolranks.add_tool("mcl_tools:shovel_netherite")
-   toolranks.add_tool("mcl_tools:shovel_diamond")
+  -- Shovel
+  toolranks.add_tool("mcl_tools:shovel_wood")
+  toolranks.add_tool("mcl_tools:shovel_stone")
+  toolranks.add_tool("mcl_tools:shovel_copper")
+  toolranks.add_tool("mcl_tools:shovel_iron")
+  toolranks.add_tool("mcl_tools:shovel_gold")
+  toolranks.add_tool("mcl_tools:shovel_netherite")
+  toolranks.add_tool("mcl_tools:shovel_diamond")
 
-   -- Shears
-   toolranks.add_tool("mcl_tools:shears")
+  -- Sword
+  toolranks.add_tool("mcl_tools:sword_wood")
+  toolranks.add_tool("mcl_tools:sword_stone")
+  toolranks.add_tool("mcl_tools:sword_copper")
+  toolranks.add_tool("mcl_tools:sword_iron")
+  toolranks.add_tool("mcl_tools:sword_gold")
+  toolranks.add_tool("mcl_tools:sword_netherite")
+  toolranks.add_tool("mcl_tools:sword_diamond")
 end
 
 -- exile support
@@ -258,6 +269,15 @@ end
 
 -- hades revisited support
 if core.get_modpath("hades_core") then
+  -- Axe
+  toolranks.add_tool("hades_core:axe_wood")
+  toolranks.add_tool("hades_core:axe_stone")
+  toolranks.add_tool("hades_core:axe_iron")
+  toolranks.add_tool("hades_core:axe_steel")
+  toolranks.add_tool("hades_core:axe_bronze")
+  toolranks.add_tool("hades_core:axe_mese")
+  toolranks.add_tool("hades_core:axe_prism")
+
   -- Pickaxe
   toolranks.add_tool("hades_core:pick_wood")
   toolranks.add_tool("hades_core:pick_stone")
@@ -275,15 +295,6 @@ if core.get_modpath("hades_core") then
   toolranks.add_tool("hades_core:shovel_bronze")
   toolranks.add_tool("hades_core:shovel_mese")
   toolranks.add_tool("hades_core:shovel_prism")
-
-  -- Axe
-  toolranks.add_tool("hades_core:axe_wood")
-  toolranks.add_tool("hades_core:axe_stone")
-  toolranks.add_tool("hades_core:axe_iron")
-  toolranks.add_tool("hades_core:axe_steel")
-  toolranks.add_tool("hades_core:axe_bronze")
-  toolranks.add_tool("hades_core:axe_mese")
-  toolranks.add_tool("hades_core:axe_prism")
 
   -- Sword
   toolranks.add_tool("hades_core:sword_wood")
