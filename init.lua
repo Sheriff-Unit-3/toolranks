@@ -244,6 +244,17 @@ if core.get_modpath("mcl_tools") then
   toolranks.add_tool("mcl_tools:sword_diamond")
 end
 
+if core.get_modpath("mcl_farming") then
+  -- Hoe
+  toolranks.add_tool("mcl_farming:hoe_wood")
+  toolranks.add_tool("mcl_farming:hoe_stone")
+  toolranks.add_tool("mcl_farming:hoe_copper")
+  toolranks.add_tool("mcl_farming:hoe_iron")
+  toolranks.add_tool("mcl_farming:hoe_gold")
+  toolranks.add_tool("mcl_farming:hoe_netherite")
+  toolranks.add_tool("mcl_farming:hoe_diamond")
+end
+
 -- exile support
 if core.get_modpath("tech") then
   -- 1st level
