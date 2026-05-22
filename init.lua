@@ -194,13 +194,13 @@ end
 
 if core.get_modpath("farming") then
   -- Hoe
-  toolranks.add_tool("default:hoe_wood")
-  toolranks.add_tool("default:hoe_stone")
-  toolranks.add_tool("default:hoe_steel")
+  toolranks.add_tool("farming:hoe_wood")
+  toolranks.add_tool("farming:hoe_stone")
+  toolranks.add_tool("farming:hoe_steel")
   -- Depreciated in MTG
-  toolranks.add_tool("default:hoe_bronze")
-  toolranks.add_tool("default:hoe_mese")
-  toolranks.add_tool("default:hoe_diamond")
+  toolranks.add_tool("farming:hoe_bronze")
+  toolranks.add_tool("farming:hoe_mese")
+  toolranks.add_tool("farming:hoe_diamond")
 end
 
 if core.get_modpath("mcl_tools") then
@@ -304,4 +304,19 @@ if core.get_modpath("hades_core") then
   toolranks.add_tool("hades_core:sword_bronze")
   toolranks.add_tool("hades_core:sword_mese")
   toolranks.add_tool("hades_core:sword_prism")
+end
+
+if core.get_modpath("hades_farming") then
+  -- Hoe
+  toolranks.add_tool("hades_farming:hoe_wood")
+  toolranks.add_tool("hades_farming:hoe_stone")
+  toolranks.add_tool("hades_farming:hoe_iron")
+  toolranks.add_tool("hades_farming:hoe_steel")
+  toolranks.add_tool("hades_farming:hoe_bronze")
+  toolranks.add_tool("hades_farming:hoe_mese")
+  toolranks.add_tool("hades_farming:hoe_prism")
+end
+
+if core.get_modpath("hades_vines") then
+  toolranks.add_tool("hades_vines:shears")
 end
