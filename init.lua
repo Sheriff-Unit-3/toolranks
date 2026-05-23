@@ -158,176 +158,31 @@ function toolranks.add_tool(name)
   })
 end
 
-if core.get_modpath("default") then
-  -- Axe
-  toolranks.add_tool("default:axe_wood")
-  toolranks.add_tool("default:axe_stone")
-  toolranks.add_tool("default:axe_steel")
-  toolranks.add_tool("default:axe_bronze")
-  toolranks.add_tool("default:axe_mese")
-  toolranks.add_tool("default:axe_diamond")
-
-  -- Pickaxe
-  toolranks.add_tool("default:pick_wood")
-  toolranks.add_tool("default:pick_stone")
-  toolranks.add_tool("default:pick_steel")
-  toolranks.add_tool("default:pick_bronze")
-  toolranks.add_tool("default:pick_mese")
-  toolranks.add_tool("default:pick_diamond")
-
-  -- Shovel
-  toolranks.add_tool("default:shovel_wood")
-  toolranks.add_tool("default:shovel_stone")
-  toolranks.add_tool("default:shovel_steel")
-  toolranks.add_tool("default:shovel_bronze")
-  toolranks.add_tool("default:shovel_mese")
-  toolranks.add_tool("default:shovel_diamond")
-
-  -- Sword
-  toolranks.add_tool("default:sword_wood")
-  toolranks.add_tool("default:sword_stone")
-  toolranks.add_tool("default:sword_steel")
-  toolranks.add_tool("default:sword_bronze")
-  toolranks.add_tool("default:sword_mese")
-  toolranks.add_tool("default:sword_diamond")
+-- Load files for game/mod compatibility
+local function load(file)
+	local mod = core.get_current_modname()
+	local modpath = core.get_modpath(mod)
+	return dofile(modpath..file)
 end
 
-if core.get_modpath("farming") then
-  -- Hoe
-  toolranks.add_tool("farming:hoe_wood")
-  toolranks.add_tool("farming:hoe_stone")
-  toolranks.add_tool("farming:hoe_steel")
-  -- Depreciated in MTG
-  toolranks.add_tool("farming:hoe_bronze")
-  toolranks.add_tool("farming:hoe_mese")
-  toolranks.add_tool("farming:hoe_diamond")
+local game_info = core.get_game_info()
+
+if game_info.id == "minetest" then
+  load("/compat/game/MTG.lua")
 end
 
-if core.get_modpath("mcl_tools") then
-  -- Axe
-  toolranks.add_tool("mcl_tools:axe_wood")
-  toolranks.add_tool("mcl_tools:axe_stone")
-  toolranks.add_tool("mcl_tools:axe_copper")
-  toolranks.add_tool("mcl_tools:axe_iron")
-  toolranks.add_tool("mcl_tools:axe_gold")
-  toolranks.add_tool("mcl_tools:axe_netherite")
-  toolranks.add_tool("mcl_tools:axe_diamond")
-
-  -- Pickaxe
-  toolranks.add_tool("mcl_tools:pick_wood")
-  toolranks.add_tool("mcl_tools:pick_stone")
-  toolranks.add_tool("mcl_tools:pick_copper")
-  toolranks.add_tool("mcl_tools:pick_iron")
-  toolranks.add_tool("mcl_tools:pick_gold")
-  toolranks.add_tool("mcl_tools:pick_netherite")
-  toolranks.add_tool("mcl_tools:pick_diamond")
-
-  -- Shears
-  toolranks.add_tool("mcl_tools:shears")
-
-  -- Shovel
-  toolranks.add_tool("mcl_tools:shovel_wood")
-  toolranks.add_tool("mcl_tools:shovel_stone")
-  toolranks.add_tool("mcl_tools:shovel_copper")
-  toolranks.add_tool("mcl_tools:shovel_iron")
-  toolranks.add_tool("mcl_tools:shovel_gold")
-  toolranks.add_tool("mcl_tools:shovel_netherite")
-  toolranks.add_tool("mcl_tools:shovel_diamond")
-
-  -- Sword
-  toolranks.add_tool("mcl_tools:sword_wood")
-  toolranks.add_tool("mcl_tools:sword_stone")
-  toolranks.add_tool("mcl_tools:sword_copper")
-  toolranks.add_tool("mcl_tools:sword_iron")
-  toolranks.add_tool("mcl_tools:sword_gold")
-  toolranks.add_tool("mcl_tools:sword_netherite")
-  toolranks.add_tool("mcl_tools:sword_diamond")
+if game_info.id == "mineclonia" then
+  load("/compat/game/MCL.lua")
 end
 
-if core.get_modpath("mcl_farming") then
-  -- Hoe
-  toolranks.add_tool("mcl_farming:hoe_wood")
-  toolranks.add_tool("mcl_farming:hoe_stone")
-  toolranks.add_tool("mcl_farming:hoe_copper")
-  toolranks.add_tool("mcl_farming:hoe_iron")
-  toolranks.add_tool("mcl_farming:hoe_gold")
-  toolranks.add_tool("mcl_farming:hoe_netherite")
-  toolranks.add_tool("mcl_farming:hoe_diamond")
+if game_info.id == "mineclone2" then
+  load("/compat/game/MCL2.lua")
 end
 
--- exile support
-if core.get_modpath("tech") then
-  -- 1st level
-  toolranks.add_tool("tech:stone_chopper")
-  toolranks.add_tool("tech:digging_stick")
-
-  -- 2nd level
-  toolranks.add_tool("tech:adze_granite")
-  toolranks.add_tool("tech:adze_basalt")
-  toolranks.add_tool("tech:adze_jade")
-  toolranks.add_tool("tech:stone_club")
-
-  -- 3rd level
-  toolranks.add_tool("tech:axe_iron")
-  toolranks.add_tool("tech:shovel_iron")
-  toolranks.add_tool("tech:mace_iron")
-  toolranks.add_tool("tech:pickaxe_iron")
-
-  -- hammers
-  toolranks.add_tool("tech:hammer_granite")
-  toolranks.add_tool("tech:hammer_basalt")
+if game_info.id == "exile" then
+  load("/compat/game/Exile.lua")
 end
 
--- hades revisited support
-if core.get_modpath("hades_core") then
-  -- Axe
-  toolranks.add_tool("hades_core:axe_wood")
-  toolranks.add_tool("hades_core:axe_stone")
-  toolranks.add_tool("hades_core:axe_iron")
-  toolranks.add_tool("hades_core:axe_steel")
-  toolranks.add_tool("hades_core:axe_bronze")
-  toolranks.add_tool("hades_core:axe_mese")
-  toolranks.add_tool("hades_core:axe_prism")
-
-  -- Pickaxe
-  toolranks.add_tool("hades_core:pick_wood")
-  toolranks.add_tool("hades_core:pick_stone")
-  toolranks.add_tool("hades_core:pick_iron")
-  toolranks.add_tool("hades_core:pick_steel")
-  toolranks.add_tool("hades_core:pick_bronze")
-  toolranks.add_tool("hades_core:pick_mese")
-  toolranks.add_tool("hades_core:pick_prism")
-
-  -- Shovel
-  toolranks.add_tool("hades_core:shovel_wood")
-  toolranks.add_tool("hades_core:shovel_stone")
-  toolranks.add_tool("hades_core:shovel_iron")
-  toolranks.add_tool("hades_core:shovel_steel")
-  toolranks.add_tool("hades_core:shovel_bronze")
-  toolranks.add_tool("hades_core:shovel_mese")
-  toolranks.add_tool("hades_core:shovel_prism")
-
-  -- Sword
-  toolranks.add_tool("hades_core:sword_wood")
-  toolranks.add_tool("hades_core:sword_stone")
-  toolranks.add_tool("hades_core:sword_iron")
-  toolranks.add_tool("hades_core:sword_steel")
-  toolranks.add_tool("hades_core:sword_bronze")
-  toolranks.add_tool("hades_core:sword_mese")
-  toolranks.add_tool("hades_core:sword_prism")
-end
-
-if core.get_modpath("hades_farming") then
-  -- Hoe
-  toolranks.add_tool("hades_farming:hoe_wood")
-  toolranks.add_tool("hades_farming:hoe_stone")
-  toolranks.add_tool("hades_farming:hoe_iron")
-  toolranks.add_tool("hades_farming:hoe_steel")
-  toolranks.add_tool("hades_farming:hoe_bronze")
-  toolranks.add_tool("hades_farming:hoe_mese")
-  toolranks.add_tool("hades_farming:hoe_prism")
-end
-
-if core.get_modpath("hades_vines") then
-  toolranks.add_tool("hades_vines:shears")
+if game_info.id == "hades_revisited" then
+  load("/compat/game/Hades.lua")
 end
