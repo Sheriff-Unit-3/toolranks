@@ -3,6 +3,9 @@ local S, PS = core.get_translator("toolranks")
 
 toolranks = {}
 
+-- for a list of tools to register
+toolranks.register = {}
+
 toolranks.colors = {
   grey = core.get_color_escape_sequence("#9d9d9d"),
   green = core.get_color_escape_sequence("#1eff00"),
@@ -165,24 +168,36 @@ local function load(file)
 	return dofile(modpath..file)
 end
 
-local game_info = core.get_game_info()
+local function mod(name)
+  return core.get_modpath(name)
+end
 
-if game_info.id == "minetest" then
+local function game(name)
+  local game_id = core.get_game_info().id
+  if game_id == name then
+    return true
+  else
+    return false
+  end
+end
+
+-- Load compatibility files for game
+if game("minetest") then
   load("/compat/game/MTG.lua")
-end
 
-if game_info.id == "mineclonia" then
+elseif game("mineclonia") then
   load("/compat/game/MCL.lua")
-end
 
-if game_info.id == "mineclone2" then
+elseif game("mineclone2") then
   load("/compat/game/MCL2.lua")
-end
 
-if game_info.id == "exile" then
+elseif game("exile") then
   load("/compat/game/Exile.lua")
+
+elseif game("hades_revisited") then
+  load("/compat/game/Hades.lua")
 end
 
-if game_info.id == "hades_revisited" then
-  load("/compat/game/Hades.lua")
+for index, tool in ipairs(toolranks.register) do
+  toolranks.add_tool(tool)
 end

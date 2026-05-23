@@ -1,51 +1,63 @@
 if core.get_modpath("mcl_tools") then
-  -- Axe
-  toolranks.add_tool("mcl_tools:axe_wood")
-  toolranks.add_tool("mcl_tools:axe_stone")
-  toolranks.add_tool("mcl_tools:axe_copper")
-  toolranks.add_tool("mcl_tools:axe_iron")
-  toolranks.add_tool("mcl_tools:axe_gold")
-  toolranks.add_tool("mcl_tools:axe_netherite")
-  toolranks.add_tool("mcl_tools:axe_diamond")
+  local tools = {
+    -- Axe
+    "mcl_tools:axe_wood",
+    "mcl_tools:axe_stone",
+    "mcl_tools:axe_copper",
+    "mcl_tools:axe_iron",
+    "mcl_tools:axe_gold",
+    "mcl_tools:axe_netherite",
+    "mcl_tools:axe_diamond",
 
-  -- Pickaxe
-  toolranks.add_tool("mcl_tools:pick_wood")
-  toolranks.add_tool("mcl_tools:pick_stone")
-  toolranks.add_tool("mcl_tools:pick_copper")
-  toolranks.add_tool("mcl_tools:pick_iron")
-  toolranks.add_tool("mcl_tools:pick_gold")
-  toolranks.add_tool("mcl_tools:pick_netherite")
-  toolranks.add_tool("mcl_tools:pick_diamond")
+    -- Pickaxe
+    "mcl_tools:pick_wood",
+    "mcl_tools:pick_stone",
+    "mcl_tools:pick_copper",
+    "mcl_tools:pick_iron",
+    "mcl_tools:pick_gold",
+    "mcl_tools:pick_netherite",
+    "mcl_tools:pick_diamond",
 
-  -- Shears
-  toolranks.add_tool("mcl_tools:shears")
+    -- Shears
+    "mcl_tools:shears",
 
-  -- Shovel
-  toolranks.add_tool("mcl_tools:shovel_wood")
-  toolranks.add_tool("mcl_tools:shovel_stone")
-  toolranks.add_tool("mcl_tools:shovel_copper")
-  toolranks.add_tool("mcl_tools:shovel_iron")
-  toolranks.add_tool("mcl_tools:shovel_gold")
-  toolranks.add_tool("mcl_tools:shovel_netherite")
-  toolranks.add_tool("mcl_tools:shovel_diamond")
+    -- Shovel
+    "mcl_tools:shovel_wood",
+    "mcl_tools:shovel_stone",
+    "mcl_tools:shovel_copper",
+    "mcl_tools:shovel_iron",
+    "mcl_tools:shovel_gold",
+    "mcl_tools:shovel_netherite",
+    "mcl_tools:shovel_diamond",
 
-  -- Sword
-  toolranks.add_tool("mcl_tools:sword_wood")
-  toolranks.add_tool("mcl_tools:sword_stone")
-  toolranks.add_tool("mcl_tools:sword_copper")
-  toolranks.add_tool("mcl_tools:sword_iron")
-  toolranks.add_tool("mcl_tools:sword_gold")
-  toolranks.add_tool("mcl_tools:sword_netherite")
-  toolranks.add_tool("mcl_tools:sword_diamond")
+    -- Sword
+    "mcl_tools:sword_wood",
+    "mcl_tools:sword_stone",
+    "mcl_tools:sword_copper",
+    "mcl_tools:sword_iron",
+    "mcl_tools:sword_gold",
+    "mcl_tools:sword_netherite",
+    "mcl_tools:sword_diamond",
+  }
+
+  for index, tool in ipairs(tools) do
+    table.insert(toolranks.register, tool)
+  end
 end
 
 if core.get_modpath("mcl_farming") then
-  -- Hoe
-  toolranks.add_tool("mcl_farming:hoe_wood")
-  toolranks.add_tool("mcl_farming:hoe_stone")
-  toolranks.add_tool("mcl_farming:hoe_copper")
-  toolranks.add_tool("mcl_farming:hoe_iron")
-  toolranks.add_tool("mcl_farming:hoe_gold")
-  toolranks.add_tool("mcl_farming:hoe_netherite")
-  toolranks.add_tool("mcl_farming:hoe_diamond")
+  local tools = {
+    -- Hoe
+    "mcl_farming:hoe_wood",
+    "mcl_farming:hoe_stone",
+    "mcl_farming:hoe_copper",
+    "mcl_farming:hoe_iron",
+    "mcl_farming:hoe_gold",
+    "mcl_farming:hoe_netherite",
+    "mcl_farming:hoe_diamond",
+  }
+
+  for index, tool in ipairs(tools) do
+    table.insert(toolranks.register, tool)
+  end
 end

@@ -1,44 +1,56 @@
 if core.get_modpath("default") then
-  -- Axe
-  toolranks.add_tool("default:axe_wood")
-  toolranks.add_tool("default:axe_stone")
-  toolranks.add_tool("default:axe_steel")
-  toolranks.add_tool("default:axe_bronze")
-  toolranks.add_tool("default:axe_mese")
-  toolranks.add_tool("default:axe_diamond")
+  local tools = {
+    -- Axe
+    "default:axe_wood",
+    "default:axe_stone",
+    "default:axe_steel",
+    "default:axe_bronze",
+    "default:axe_mese",
+    "default:axe_diamond",
 
-  -- Pickaxe
-  toolranks.add_tool("default:pick_wood")
-  toolranks.add_tool("default:pick_stone")
-  toolranks.add_tool("default:pick_steel")
-  toolranks.add_tool("default:pick_bronze")
-  toolranks.add_tool("default:pick_mese")
-  toolranks.add_tool("default:pick_diamond")
+    -- Pickaxe
+    "default:pick_wood",
+    "default:pick_stone",
+    "default:pick_steel",
+    "default:pick_bronze",
+    "default:pick_mese",
+    "default:pick_diamond",
 
-  -- Shovel
-  toolranks.add_tool("default:shovel_wood")
-  toolranks.add_tool("default:shovel_stone")
-  toolranks.add_tool("default:shovel_steel")
-  toolranks.add_tool("default:shovel_bronze")
-  toolranks.add_tool("default:shovel_mese")
-  toolranks.add_tool("default:shovel_diamond")
+    -- Shovel
+    "default:shovel_wood",
+    "default:shovel_stone",
+    "default:shovel_steel",
+    "default:shovel_bronze",
+    "default:shovel_mese",
+    "default:shovel_diamond",
 
-  -- Sword
-  toolranks.add_tool("default:sword_wood")
-  toolranks.add_tool("default:sword_stone")
-  toolranks.add_tool("default:sword_steel")
-  toolranks.add_tool("default:sword_bronze")
-  toolranks.add_tool("default:sword_mese")
-  toolranks.add_tool("default:sword_diamond")
+    -- Sword
+    "default:sword_wood",
+    "default:sword_stone",
+    "default:sword_steel",
+    "default:sword_bronze",
+    "default:sword_mese",
+    "default:sword_diamond",
+  }
+
+  for index, tool in ipairs(tools) do
+    table.insert(toolranks.register, tool)
+  end
 end
 
 if core.get_modpath("farming") then
+  local tools = {
   -- Hoe
-  toolranks.add_tool("farming:hoe_wood")
-  toolranks.add_tool("farming:hoe_stone")
-  toolranks.add_tool("farming:hoe_steel")
+    "farming:hoe_wood",
+    "farming:hoe_stone",
+    "farming:hoe_steel",
   -- Depreciated in MTG
-  toolranks.add_tool("farming:hoe_bronze")
-  toolranks.add_tool("farming:hoe_mese")
-  toolranks.add_tool("farming:hoe_diamond")
+    "farming:hoe_bronze",
+    "farming:hoe_mese",
+    "farming:hoe_diamond",
+  }
+
+  for index, tool in ipairs(tools) do
+    table.insert(toolranks.register, tool)
+  end
 end

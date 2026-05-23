@@ -1,21 +1,27 @@
 if core.get_modpath("tech") then
-  -- 1st level
-  toolranks.add_tool("tech:stone_chopper")
-  toolranks.add_tool("tech:digging_stick")
+  local tools = {
+    -- 1st level
+    "tech:stone_chopper",
+    "tech:digging_stick",
 
-  -- 2nd level
-  toolranks.add_tool("tech:adze_granite")
-  toolranks.add_tool("tech:adze_basalt")
-  toolranks.add_tool("tech:adze_jade")
-  toolranks.add_tool("tech:stone_club")
+    -- 2nd level
+    "tech:adze_granite",
+    "tech:adze_basalt",
+    "tech:adze_jade",
+    "tech:stone_club",
 
-  -- 3rd level
-  toolranks.add_tool("tech:axe_iron")
-  toolranks.add_tool("tech:shovel_iron")
-  toolranks.add_tool("tech:mace_iron")
-  toolranks.add_tool("tech:pickaxe_iron")
+    -- 3rd level
+    "tech:axe_iron",
+    "tech:shovel_iron",
+    "tech:mace_iron",
+    "tech:pickaxe_iron",
 
-  -- hammers
-  toolranks.add_tool("tech:hammer_granite")
-  toolranks.add_tool("tech:hammer_basalt")
+    -- hammers
+    "tech:hammer_granite",
+    "tech:hammer_basalt",
+  }
+
+  for index, tool in ipairs(tools) do
+    table.insert(toolranks.register, tool)
+  end
 end
