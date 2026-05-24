@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-23 19:43-0500\n"
-"PO-Revision-Date: 2026-05-09 21:58+0000\n"
+"PO-Revision-Date: 2026-05-24 11:50+0000\n"
 "Last-Translator: gallegonovato <gallegonovato@noreply.codeberg.org>\n"
 "Language-Team: Spanish <https://translate.codeberg.org/projects/toolranks/"
 "toolranks/es/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.17.1\n"
+"X-Generator: Weblate 2026.5\n"
 
 #: init.lua:28
 msgid "axe"
@@ -20,7 +20,7 @@ msgstr "hacha"
 
 #: init.lua:29
 msgid "hammer"
-msgstr ""
+msgstr "martillo"
 
 #: init.lua:30
 msgid "hoe"
@@ -32,7 +32,7 @@ msgstr "pico"
 
 #: init.lua:32
 msgid "shears"
-msgstr ""
+msgstr "tijeras"
 
 #: init.lua:33
 msgid "shovel"
