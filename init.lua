@@ -24,22 +24,26 @@ function toolranks.get_tool_type(description)
     return "tool"
   else
     local d = string.lower(description)
-    if string.find(d, "axe") then
-      return S("axe")
-    elseif string.find(d, "hammer") then
-      return S("hammer")
-    elseif string.find(d, "hoe") then
-      return S("hoe")
-    elseif string.find(d, "pickaxe") then
-      return S("pickaxe")
-    elseif string.find(d, "shears") then
-      return S("shears")
-    elseif string.find(d, "shovel") then
-      return S("shovel")
-    elseif string.find(d, "sword") then
-      return S("sword")
-    else
-      return "tool"
+    local strings = {
+      axe = S("axe"),
+      hammer = S("hammer"),
+      hoe = S("hoe"),
+      pickaxe = S("pickaxe"),
+      shears = S("shears"),
+      shovel = S("shovel"),
+      spear = S("spear"),
+      sword = S("sword"),
+      trident = S("trident")
+    }
+    local found = false
+    for name, text in pairs(strings) do
+      if string.find(d, name) then
+        found = true
+        return text
+      end
+    end
+    if found == false then
+      return S("tool")
     end
   end
 end
@@ -156,7 +160,7 @@ function toolranks.add_tool(name)
   local desc = ItemStack(name):get_definition().description
   core.override_item(name, {
     original_description = desc,
-    description = toolranks.create_description(desc),
+    description = core.formspec_escape(toolranks.create_description(desc)),
     after_use = toolranks.new_afteruse
   })
 end

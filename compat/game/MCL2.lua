@@ -56,3 +56,55 @@ if core.get_modpath("mcl_farming") then
     table.insert(toolranks.register, tool)
   end
 end
+
+if core.get_modpath("vl_deepslate_tools") then
+  local tools = {
+    -- Deepslate tools
+    "vl_deepslate_tools:pick_deepslate",
+    "vl_deepslate_tools:shovel_deepslate",
+    "vl_deepslate_tools:hoe_deepslate",
+    "vl_deepslate_tools:axe_deepslate",
+    "vl_deepslate_tools:sword_deepslate",
+    "vl_deepslate_tools:hammer_deepslate",
+    "vl_deepslate_tools:spear_deepslate",
+  }
+
+  for index, tool in ipairs(tools) do
+    table.insert(toolranks.register, tool)
+  end
+end
+
+if core.get_modpath("vl_tridents") then
+  local tools = {
+    -- Trident
+    "vl_tridents:trident",
+  }
+
+  for index, tool in ipairs(tools) do
+    table.insert(toolranks.register, tool)
+  end
+end
+
+if core.get_modpath("vl_weaponry") then
+  local tools = {
+    -- Hammers
+    "vl_weaponry:hammer_wood",
+    "vl_weaponry:hammer_stone",
+    "vl_weaponry:hammer_iron",
+    "vl_weaponry:hammer_gold",
+    "vl_weaponry:hammer_diamond",
+    "vl_weaponry:hammer_netherite",
+
+    -- Spears
+    "vl_weaponry:spear_wood",
+    "vl_weaponry:spear_stone",
+    "vl_weaponry:spear_iron",
+    "vl_weaponry:spear_gold",
+    "vl_weaponry:spear_diamond",
+    "vl_weaponry:spear_netherite",
+  }
+
+  for index, tool in ipairs(tools) do
+    table.insert(toolranks.register, tool)
+  end
+end
