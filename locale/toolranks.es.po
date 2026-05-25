@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-23 19:43-0500\n"
-"PO-Revision-Date: 2026-05-24 11:50+0000\n"
+"PO-Revision-Date: 2026-05-25 13:07+0000\n"
 "Last-Translator: gallegonovato <gallegonovato@noreply.codeberg.org>\n"
 "Language-Team: Spanish <https://translate.codeberg.org/projects/toolranks/"
 "toolranks/es/>\n"
@@ -40,7 +40,7 @@ msgstr "pala"
 
 #: init.lua:34
 msgid "spear"
-msgstr ""
+msgstr "Lanza"
 
 #: init.lua:35
 msgid "sword"
@@ -48,7 +48,7 @@ msgstr "espada"
 
 #: init.lua:36
 msgid "trident"
-msgstr ""
+msgstr "tridente"
 
 #: init.lua:46
 msgid "tool"
