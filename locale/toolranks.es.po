@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-01 09:22-0500\n"
-"PO-Revision-Date: 2026-05-25 13:07+0000\n"
+"PO-Revision-Date: 2026-06-02 20:07+0000\n"
 "Last-Translator: gallegonovato <gallegonovato@noreply.codeberg.org>\n"
 "Language-Team: Spanish <https://translate.codeberg.org/projects/toolranks/"
 "toolranks/es/>\n"
@@ -52,7 +52,7 @@ msgstr "tridente"
 
 #: init.lua:27
 msgid "mace"
-msgstr ""
+msgstr "Mazo"
 
 #: init.lua:53
 msgid "tool"
