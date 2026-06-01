@@ -11,8 +11,8 @@ The original mod was created by: [lisacvuk](https://content.luanti.org/users/lis
 ## License
 For further information please see [License.md](License.md).
 Code: [LGPLv2.1+](https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html)  
-Tool level sound: [CC BY 3.0](https://freesound.org/people/MakoFox/sounds/126422/)
-Tool break sound: [CC0](https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt)
+Tool level sound: [CC BY 3.0](https://freesound.org/people/MakoFox/sounds/126422/)  
+Tool break sound: [CC0](https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt)  
 
 ## For mod and Game Devs:
 It is no longer required to call `toolranks.add_tool(name)`, though it will 
