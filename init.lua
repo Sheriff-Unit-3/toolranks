@@ -1,10 +1,10 @@
 local mod_storage = core.get_mod_storage()
-local S, PS = core.get_translator("toolranks")
+local S = core.get_translator("toolranks")
 
 toolranks = {}
 
--- for a list of tools to register
-toolranks.register = {}
+-- list of registered tools
+toolranks.registered = {}
 
 toolranks.colors = {
   grey = core.get_color_escape_sequence("#9d9d9d"),
@@ -12,6 +12,24 @@ toolranks.colors = {
   gold = core.get_color_escape_sequence("#ffdf00"),
   white = core.get_color_escape_sequence("#ffffff")
 }
+
+toolranks.tool_strings = {
+  axe = S("axe"),
+  hammer = S("hammer"),
+  hoe = S("hoe"),
+  pick = S("pickaxe"),
+  pickaxe = S("pickaxe"),
+  shears = S("shears"),
+  shovel = S("shovel"),
+  spear = S("spear"),
+  sword = S("sword"),
+  trident = S("trident"),
+  mace = S("mace")
+}
+
+local function mod(name)
+  return core.get_modpath(name)
+end
 
 local max_speed = tonumber(core.settings:get("toolranks_speed_multiplier")) or 2.0
 local max_use = tonumber(core.settings:get("toolranks_use_multiplier")) or 2.0
@@ -24,19 +42,8 @@ function toolranks.get_tool_type(description)
     return "tool"
   else
     local d = string.lower(description)
-    local strings = {
-      axe = S("axe"),
-      hammer = S("hammer"),
-      hoe = S("hoe"),
-      pickaxe = S("pickaxe"),
-      shears = S("shears"),
-      shovel = S("shovel"),
-      spear = S("spear"),
-      sword = S("sword"),
-      trident = S("trident")
-    }
     local found = false
-    for name, text in pairs(strings) do
+    for name, text in pairs(toolranks.tool_strings) do
       if string.find(d, name) then
         found = true
         return text
@@ -88,7 +95,7 @@ function toolranks.new_afteruse(itemstack, user, node, digparams)
   end
 
   if dugnodes > most_digs then
-    if most_digs_user ~= pname then -- Avoid spam.
+    if most_digs_user ~= pname and core.settings:get_bool("toolranks_announce", true) then -- Avoid spam.
       core.chat_send_all(S(
         "Most used tool is now a @1@2@3 owned by @4 with @5 uses.",
         toolranks.colors.green,
@@ -102,12 +109,13 @@ function toolranks.new_afteruse(itemstack, user, node, digparams)
     mod_storage:set_string("most_digs_user", pname)
   end
 
-  if itemstack:get_wear() > 60135 and core.get_modpath("default") then
-    core.chat_send_player(user:get_player_name(), S("Your tool is about to break!"))
-    core.sound_play("default_tool_breaks", {
-      to_player = pname,
-      gain = 2.0,
-    })
+  if itemstack:get_wear() > 60135 then
+    if core.settings:get_bool("toolranks_warn", true) then
+      core.chat_send_player(user:get_player_name(), S("Your tool is about to break!"))
+    end
+    if core.settings:get_bool("toolranks_warn_sound", true) then
+      core.sound_play("toolranks_break", {to_player = pname, gain = 2.0})
+    end
   end
 
   local level = toolranks.get_level(dugnodes)
@@ -119,10 +127,7 @@ function toolranks.new_afteruse(itemstack, user, node, digparams)
       toolranks.colors.white
     )
     core.chat_send_player(user:get_player_name(), levelup_text)
-    core.sound_play("toolranks_levelup", {
-      to_player = pname,
-      gain = 2.0,
-    })
+    core.sound_play("toolranks_levelup", {to_player = pname, gain = 2.0})
 	-- Make tool better by modifying tool_capabilities (if defined)
     if itemdef.tool_capabilities then
       local speed_multiplier = 1 + (level * level_multiplier * (max_speed - 1))
@@ -139,7 +144,7 @@ function toolranks.new_afteruse(itemstack, user, node, digparams)
         end
       end
       itemmeta:set_tool_capabilities(caps)
-	end
+	  end
   end
 
   -- Old method for compatibility with tools without tool_capabilities defined
@@ -155,53 +160,33 @@ function toolranks.new_afteruse(itemstack, user, node, digparams)
   return itemstack
 end
 
--- Helper function
+-- keep in global namespace for compatibility
 function toolranks.add_tool(name)
-  local desc = ItemStack(name):get_definition().description
-  core.override_item(name, {
-    original_description = desc,
-    description = core.formspec_escape(toolranks.create_description(desc)),
-    after_use = toolranks.new_afteruse
-  })
-end
-
--- Load files for game/mod compatibility
-local function load(file)
-	local mod = core.get_current_modname()
-	local modpath = core.get_modpath(mod)
-	return dofile(modpath..file)
-end
-
-local function mod(name)
-  return core.get_modpath(name)
-end
-
-local function game(name)
-  local game_id = core.get_game_info().id
-  if game_id == name then
+  if not toolranks.registered[name] then
+    local desc = ItemStack(name):get_definition().description
+    core.override_item(name, {
+      original_description = desc,
+      description = core.formspec_escape(toolranks.create_description(desc)),
+      after_use = toolranks.new_afteruse
+    })
+    toolranks.registered[name] = true
+    return true
+  elseif toolranks.registered[name] then
     return true
   else
     return false
   end
 end
 
--- Load compatibility files for game
-if game("minetest") then
-  load("/compat/game/MTG.lua")
-
-elseif game("mineclonia") then
-  load("/compat/game/MCL.lua")
-
-elseif game("mineclone2") then
-  load("/compat/game/MCL2.lua")
-
-elseif game("exile") then
-  load("/compat/game/Exile.lua")
-
-elseif game("hades_revisited") then
-  load("/compat/game/Hades.lua")
-end
-
-for index, tool in ipairs(toolranks.register) do
-  toolranks.add_tool(tool)
-end
+-- dynamically register tools
+core.register_on_mods_loaded(function()
+  for name, def in pairs(core.registered_tools) do
+    local short_name = name:gsub("^.-:", "")
+    for string, tt in pairs(toolranks.tool_strings) do
+      if string.find(short_name, string, 1, true) then
+        toolranks.add_tool(name)
+        break
+      end
+    end
+  end
+end)
