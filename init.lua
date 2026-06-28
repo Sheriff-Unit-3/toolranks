@@ -27,10 +27,6 @@ toolranks.tool_strings = {
   mace = S("mace")
 }
 
-local function mod(name)
-  return core.get_modpath(name)
-end
-
 local max_speed = tonumber(core.settings:get("toolranks_speed_multiplier")) or 2.0
 local max_use = tonumber(core.settings:get("toolranks_use_multiplier")) or 2.0
 local max_level = tonumber(core.settings:get("toolranks_levels")) or 10
@@ -42,16 +38,13 @@ function toolranks.get_tool_type(description)
     return "tool"
   else
     local d = string.lower(description)
-    local found = false
     for name, text in pairs(toolranks.tool_strings) do
       if string.find(d, name) then
-        found = true
         return text
       end
     end
-    if found == false then
-      return S("tool")
-    end
+    -- This only returns if the for loop doesn't
+    return S("tool")
   end
 end
 
@@ -78,7 +71,7 @@ function toolranks.create_description(name, uses)
   return newdesc
 end
 
-function toolranks.new_afteruse(itemstack, user, node, digparams)
+function toolranks.new_afteruse(itemstack, user, digparams)
   local itemmeta = itemstack:get_meta()
   local itemdef = itemstack:get_definition()
   local itemdesc = itemdef.original_description or ""
@@ -180,9 +173,9 @@ end
 
 -- dynamically register tools
 core.register_on_mods_loaded(function()
-  for name, def in pairs(core.registered_tools) do
+  for name, _ in pairs(core.registered_tools) do
     local short_name = name:gsub("^.-:", "")
-    for string, tt in pairs(toolranks.tool_strings) do
+    for string, _ in pairs(toolranks.tool_strings) do
       if string.find(short_name, string, 1, true) then
         toolranks.add_tool(name)
         break
