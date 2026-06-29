@@ -14,11 +14,11 @@ toolranks.colors = {
 }
 
 toolranks.tool_strings = {
-	axe = S("axe"),
 	hammer = S("hammer"),
 	hoe = S("hoe"),
-	pick = S("pickaxe"),
 	pickaxe = S("pickaxe"),
+	pick = S("pickaxe"),
+	axe = S("axe"),
 	shears = S("shears"),
 	shovel = S("shovel"),
 	spear = S("spear"),
@@ -35,7 +35,7 @@ local level_multiplier = 1 / max_level
 
 function toolranks.get_tool_type(description)
 	if not description then
-		return "tool"
+		return S("tool")
 	else
 		local d = string.lower(description)
 		for name, text in pairs(toolranks.tool_strings) do
@@ -50,7 +50,13 @@ end
 
 function toolranks.get_level(uses)
 	if type(uses) == "number" and uses > 0 then
-		return math.min(max_level, math.floor(uses / level_digs))
+		if max_level == 0 then
+			return 0
+		elseif level_digs == 0 then
+			return max_level
+		else
+			return math.min(max_level, math.floor(uses / level_digs))
+		end
 	end
 	return 0
 end
@@ -72,6 +78,9 @@ function toolranks.create_description(name, uses)
 end
 
 function toolranks.new_afteruse(itemstack, user, _, digparams)
+	if not user or not digparams then
+		return itemstack
+	end
 	local itemmeta = itemstack:get_meta()
 	local itemdef = itemstack:get_definition()
 	local itemdesc = itemdef.original_description or ""
@@ -80,7 +89,7 @@ function toolranks.new_afteruse(itemstack, user, _, digparams)
 	local most_digs = mod_storage:get_int("most_digs") or 0
 	local most_digs_user = mod_storage:get_string("most_digs_user") or 0
 	local pname = user:get_player_name()
-	if not pname or digparams.wear then return itemstack end -- nil check
+	if not pname then return itemstack end -- nil check
 
 	if digparams.wear > 0 then -- Only count nodes that spend the tool
 		dugnodes = dugnodes + 1
@@ -129,11 +138,12 @@ function toolranks.new_afteruse(itemstack, user, _, digparams)
 
 			caps.full_punch_interval = caps.full_punch_interval and (caps.full_punch_interval / speed_multiplier)
 			caps.punch_attack_uses = caps.punch_attack_uses and (caps.punch_attack_uses * use_multiplier)
-
-			for _,c in pairs(caps.groupcaps) do
-				c.uses = c.uses * use_multiplier
-				for i,t in ipairs(c.times) do
-					c.times[i] = t / speed_multiplier
+			if caps.groupcaps then
+				for _,c in pairs(caps.groupcaps) do
+					c.uses = c.uses * use_multiplier
+					for i, t in ipairs(c.times) do
+						c.times[i] = t / speed_multiplier
+					end
 				end
 			end
 			itemmeta:set_tool_capabilities(caps)
@@ -176,8 +186,8 @@ core.register_on_mods_loaded(function()
 	for name, def in pairs(core.registered_tools) do
 		local short_name = name:gsub("^.-:", "")
 		local desc = def.description
-		for string, _ in pairs(toolranks.tool_strings) do
-			if string.find(short_name, string, 1, true) or string.find(desc, string, 1, true) then
+		for str, _ in pairs(toolranks.tool_strings) do
+			if string.find(short_name, str, 1, true) or string.find(desc, str, 1, true) then
 				toolranks.add_tool(name)
 				break
 			end
