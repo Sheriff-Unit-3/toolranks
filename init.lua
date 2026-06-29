@@ -71,7 +71,7 @@ function toolranks.create_description(name, uses)
 	return newdesc
 end
 
-function toolranks.new_afteruse(itemstack, user, digparams)
+function toolranks.new_afteruse(itemstack, user, _, digparams)
 	local itemmeta = itemstack:get_meta()
 	local itemdef = itemstack:get_definition()
 	local itemdesc = itemdef.original_description or ""
@@ -80,7 +80,7 @@ function toolranks.new_afteruse(itemstack, user, digparams)
 	local most_digs = mod_storage:get_int("most_digs") or 0
 	local most_digs_user = mod_storage:get_string("most_digs_user") or 0
 	local pname = user:get_player_name()
-	if not pname then return itemstack end -- player nil check
+	if not pname or digparams.wear then return itemstack end -- nil check
 
 	if digparams.wear > 0 then -- Only count nodes that spend the tool
 		dugnodes = dugnodes + 1
@@ -88,7 +88,7 @@ function toolranks.new_afteruse(itemstack, user, digparams)
 	end
 
 	if dugnodes > most_digs then
-		if most_digs_user ~= pname and core.settings:get_bool("toolranks_announce", true) then -- Avoid spam.
+		if most_digs_user ~= pname and core.settings:get_bool("toolranks_announce", true) then
 			core.chat_send_all(S(
 				"Most used tool is now a @1@2@3 owned by @4 with @5 uses.",
 				toolranks.colors.green,
@@ -184,3 +184,8 @@ core.register_on_mods_loaded(function()
 		end
 	end
 end)
+
+-- Throw error when unsupported mods are found
+if core.get_modpath("toolranks_extras") then
+	core.log("error", "Toolranks: Please disable toolranks_extras, it is unsupported.")
+end
