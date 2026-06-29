@@ -173,10 +173,11 @@ end
 
 -- dynamically register tools
 core.register_on_mods_loaded(function()
-  for name, _ in pairs(core.registered_tools) do
+  for name, def in pairs(core.registered_tools) do
     local short_name = name:gsub("^.-:", "")
+    local desc = def.description
     for string, _ in pairs(toolranks.tool_strings) do
-      if string.find(short_name, string, 1, true) then
+      if string.find(short_name, string, 1, true) or string.find(desc, string, 1, true) then
         toolranks.add_tool(name)
         break
       end
