@@ -1,6 +1,7 @@
 # Toolranks (Fork)
 [![ContentDB](https://content.luanti.org/packages/Sheriff-Unit-3/toolranks/shields/downloads/)](https://content.luanti.org/packages/Sheriff-Unit-3/toolranks/)
 [![Translation status](https://translate.codeberg.org/widget/toolranks/svg-badge.svg)](https://translate.codeberg.org/engage/toolranks/)
+[[https://codeberg.org/Sheriff_U3/toolranks/badges/workflows/luacheck.yaml/badge.svg]]
 
 *When the going gets tough, you get tougher, your tool should too!*
 
